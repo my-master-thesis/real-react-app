@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import {Home} from "./home/homeComponent";
 import {Content} from "./content/contentComponent";
+import {Dynamic} from "./dynamic/dynamicComponent";
+import {BoundaryCases} from "./boundary-cases/boundaryCasesComponent";
 
 export class App extends Component {
 
@@ -65,8 +67,14 @@ export class App extends Component {
                 <Route exact path="/home">
                   <Home/>
                 </Route>
+                <Route path="/boundary">
+                  <BoundaryCases/>
+                </Route>
                 <Route path="/content">
                   <Content/>
+                </Route>
+                <Route path="/dynamic">
+                  <Dynamic/>
                 </Route>
               </Switch>
             </div>

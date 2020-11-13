@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import logo from '../img/aplikacija_drevesna_struktura.jpg';
+import {StaticTwo} from "./staticTwoComponent";
+import {StaticFive} from "./staticFiveComponent";
 
 export class Content extends Component {
 
@@ -13,8 +15,10 @@ export class Content extends Component {
         <img src={logo} alt="Drevesna struktura" />
         <div className="row">
           <div className="col-md-12 col-lg-5 pb-3">
+            <StaticTwo></StaticTwo>
           </div>
           <div className="col-md-12 col-lg-7">
+            <StaticFive></StaticFive>
           </div>
         </div>
       </div>
