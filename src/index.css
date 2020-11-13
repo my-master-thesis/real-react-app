@@ -74,3 +74,5 @@ img {
 svg {
   cursor: pointer;
 }
+
+.hidden {display:none;}

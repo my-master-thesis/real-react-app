@@ -44,6 +44,8 @@ export class Test extends Component {
     }
     this.setState({
       counterB: counter,
+    });
+    this.setState({
       resultsClickVar: Date.now() - tmp
     });
     console.timeEnd('Function var increase');
