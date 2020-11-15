@@ -1,34 +1,26 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import TasksTable from "./tasksTableComponent";
 
-export class Tasks extends Component {
+class Tasks extends Component {
 
   render() {
     return (
-      <div className="container rounded pb-2" style={{backgroundColor: '#e8e9ea'}}>
-        <h4>Komponenta 4</h4>
-        <p>Seznam testov v aplikaciji:</p>
-        <ul>
-          <li>#1A gre za 10.000.000x povečevanje prikazanega števca pri čemer v vsakem koraku kličemo funkcijo za
-            zaznavanje sprememb
-          </li>
-          <li>#1B gre za 10.000.000x povečevanje treh prikazanih števcev pri čemer v vsakem koraku kličemo funkcijo za
-            zaznavanje sprememb
-          </li>
-          <li>#1C gre za 10.000.000x nastavljanje novega objekta v prikazano spremenljivko</li>
-          <li>#2 gre za 10.000.000x povečevanje prikazanega števca pri čemer se ta začasno prepiše in povečuje v lokalni
-            spremenljivki; funkcijo za zaznavanje sprememb kličemo samo na koncu
-          </li>
-          <li>#3 gre za 10.000.000x povečevanje skritega števca (ki se ne prikazuje na uporabniškem vmesniku) pri čemer
-            v vsakem koraku kličemo funkcijo za zaznavanje sprememb
-          </li>
-          <li>#4 gre za 1.000x povečevanje prikazanega števca znotraj asinhrone funkcije <code>setTimeout</code> pri
-            čemer v vsakem koraku kličemo funkcijo za zaznavanje sprememb
-          </li>
-          <li>#5 gre za 1.000x rekurzivno povečevanje prikazanega števca znotraj asinhrone
-            funkcije <code>setTimeout</code> pri čemer v vsakem koraku kličemo funkcijo za zaznavanje sprememb
-          </li>
-        </ul>
-      </div>
+      <div className="container-fluid">
+        <h1 className="mt-4">O strani</h1>
+        <p>Ta stran vsebuje seznam vseh nalog skupaj z njihovimi nosilci. Naloge je mogoče v živo posodabljati in
+          dodeliti drugi osebi. Peav tako je mogoče pognati štoparic, ki beleži čas izvajanja naloge.</p>
+        <p>Naloge lahko dodajamo, urejamo ter brišemo. Na dnu je tudi paginacija, ki služi tudi nadzoru nad tem koliko
+          podatkov želimo prikazovati na enkrat.</p>
+        <TasksTable tasks={this.props.tasks} showContacts={true} />
+</div>
     );
   }
 }
+function mapStateToProps(state){
+  return{
+    tasks: state.tasks
+  };
+}
+
+export default connect(mapStateToProps)(Tasks);

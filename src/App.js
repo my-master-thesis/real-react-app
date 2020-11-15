@@ -11,7 +11,7 @@ import {Content} from "./content/contentComponent";
 import {Dynamic} from "./dynamic/dynamicComponent";
 import {BoundaryCases} from "./boundary-cases/boundaryCasesComponent";
 import Contacts from "./contacts/contactsComponent";
-import {Tasks} from "./tasks/tasksComponent";
+import Tasks from "./tasks/tasksComponent";
 import ContactsDetail from "./contacts/contactsDetailComponent";
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
@@ -39,6 +39,18 @@ export class App extends Component {
     }));
   }
 
+  saveData() {
+    console.log(123);
+    const state = this.store.getState();
+    localStorage.setItem('contacts-store', JSON.stringify(state.contacts));
+    localStorage.setItem('tasks-store', JSON.stringify(state.tasks));
+    console.log(345);
+  }
+
+  componentDidMount() {
+    window.addEventListener('beforeunload', this.saveData.bind(this));
+  }
+
   render() {
     return (
       <div id="wrapper" className={`d-flex ${this.state.showToolbar ? "" : "toggled"}`}>
@@ -58,7 +70,7 @@ export class App extends Component {
               </div>
             </div>
 
-            <div id=" page-content-wrapper">
+            <div id=" page-content-wrapper" style={{width: '100%'}}>
 
               <nav className=" navbar navbar-light bg-light border-bottom">
                 <button className=" navbar-toggler"

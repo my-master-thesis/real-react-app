@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ContactsCard from "./contactsCardComponent";
 import {connect} from "react-redux";
+import TasksTable from "../tasks/tasksTableComponent";
 
 class ContactsDetail extends Component {
 
@@ -12,6 +13,7 @@ class ContactsDetail extends Component {
         <h2>Kontakt:</h2>
         <ContactsCard contact={this.props.contact} full={true}/>
         <br/>
+        <TasksTable tasks={this.props.tasks} defaultContact={this.props.id} />
       </div>
 
     );
@@ -20,9 +22,10 @@ class ContactsDetail extends Component {
 
 function mapStateToProps(state){
   const id = Number(window.location.pathname.split('/').pop());
-  console.log(id);
   return{
-    contact: state.contacts.find(contact => contact.id === id)
+    id: id,
+    contact: state.contacts.find(contact => contact.id === id),
+    tasks: state.tasks.filter(task => task.contactId === id)
   };
 }
 

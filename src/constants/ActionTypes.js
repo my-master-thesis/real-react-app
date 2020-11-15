@@ -1,3 +1,6 @@
+export const ADD_TASK = 'ADD_TASK'
+export const EDIT_TASK = 'EDIT_TASK'
+export const EDIT_TASK_DURATION = 'EDIT_TASK_DURATION'
 export const ADD_CONTACT = 'ADD_CONTACT'
 export const DELETE_CONTACT = 'DELETE_CONTACT'
 export const EDIT_CONTACT = 'EDIT_CONTACT'
