@@ -13,6 +13,7 @@ export class Input extends Component {
         {label}
         <input
           value={this.props.value}
+          name={this.props.name}
           placeholder={this.props.placeholder}
           onChange={(event) => this.props.onChange(event)   }
           type="text"

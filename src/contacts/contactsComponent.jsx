@@ -11,7 +11,7 @@ class Contacts extends Component {
     const favoritesArr = contacts.filter(contact => contact.isFavorite);
     let favorites;
     if (favoritesArr.length) {
-      favorites = (<div className="container">
+      favorites = (<div className="container" id="favorite-contacts">
         <h2>Priljubljeni kontakti</h2>
         <ContactsGrid contacts={favoritesArr}></ContactsGrid>
       </div>);
@@ -25,7 +25,7 @@ class Contacts extends Component {
           dodajamo med priljubljene. Na dnu je tudi paginacija, ki služi nadzoru nad tem koliko podatkov želimo
           prikazovati na enkrat.</p>
         {favorites}
-        <div className="container">
+        <div className="container" id="all-contacts">
           <div className="row">
             <div className="col-10">
               <h2>Vsi kontakti</h2>

@@ -30,8 +30,6 @@ class TasksTableItem extends Component {
       const task = this.props.task;
       if (task.startDate) {
         this.props.editTaskDuration(task.id, task.startDate, Date.now() - task.startDate.getTime());
-      } else {
-        console.log(123, task);
       }
     });
   }
@@ -71,8 +69,8 @@ class TasksTableItem extends Component {
     return (
       <tr>
         <td>{task.id}</td>
-        <td><Input value={task.title} onChange={(event) => this.props.editTask(task.id, event.target.value, task.description, task.contactId)} /></td>
-        <td><Input value={task.description} onChange={(event) => this.props.editTask(task.id, task.title, event.target.value, task.contactId)} /></td>
+        <td><Input value={task.title} name="opravilo" onChange={(event) => this.props.editTask(task.id, event.target.value, task.description, task.contactId)} /></td>
+        <td><Input value={task.description} name="opis" onChange={(event) => this.props.editTask(task.id, task.title, event.target.value, task.contactId)} /></td>
         <td>{this.printDuration(task.duration)} {taskButton}</td>
         {showContacts}
       </tr>

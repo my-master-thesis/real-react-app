@@ -35,10 +35,10 @@ class ContactsCard extends Component {
         </div>
         <div className="card-body">
           <form className="example-form">
-            <Input value={contact.firstName} onChange={(event) => this.props.editContact(contact.id, event.target.value, contact.lastName, contact.email, contact.phone, contact.companyId)} placeholder="Janez" label="Ime"/>
-            <Input value={contact.lastName} onChange={(event) => this.props.editContact(contact.id, contact.firstName, event.target.value, contact.email, contact.phone, contact.companyId)} placeholder="Novak" label="Priimek"/>
-            <Input value={contact.email} onChange={(event) => this.props.editContact(contact.id, contact.firstName, contact.lastName, event.target.value, contact.phone, contact.companyId)} placeholder="info@test.com" label="Email"/>
-            <Input value={contact.phone} onChange={(event) => this.props.editContact(contact.id, contact.firstName, contact.lastName, contact.email, event.target.value, contact.companyId)} placeholder="+386 31 123 456" label="Telefon"/>
+            <Input value={contact.firstName} onChange={(event) => this.props.editContact(contact.id, event.target.value, contact.lastName, contact.email, contact.phone, contact.companyId)} name="ime" placeholder="Janez" label="Ime"/>
+            <Input value={contact.lastName} onChange={(event) => this.props.editContact(contact.id, contact.firstName, event.target.value, contact.email, contact.phone, contact.companyId)} name="priimek" placeholder="Novak" label="Priimek"/>
+            <Input value={contact.email} onChange={(event) => this.props.editContact(contact.id, contact.firstName, contact.lastName, event.target.value, contact.phone, contact.companyId)} name="email" placeholder="info@test.com" label="Email"/>
+            <Input value={contact.phone} onChange={(event) => this.props.editContact(contact.id, contact.firstName, contact.lastName, contact.email, event.target.value, contact.companyId)} name="telefon" placeholder="+386 31 123 456" label="Telefon"/>
             <Select value={contact.companyId} items={this.props.companies} onChange={(event) => this.props.editContact(contact.id, contact.firstName, contact.lastName, contact.email, contact.phone, event.target.value)} bindLabel="companyName" bindValue="id" name="companyId" label="Podjetje" />
             <p><Link to={'contacts/' + contact.id}>Več</Link></p>
           </form>

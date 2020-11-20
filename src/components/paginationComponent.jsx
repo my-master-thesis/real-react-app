@@ -45,7 +45,7 @@ export class Pagination extends Component {
     let previous, first, dotsLeft, dotsRight, last, next;
     if (this.state.selectedPage > 0) {
       previous = (<li className="page-item">
-        <button onClick={() => this.changePage(-1)} className="page-link">Nazaj</button>
+        <button onClick={() => this.changePage(-1)} className="page-link  previous-page">Nazaj</button>
       </li>);
       first = (<li className="page-item">
         <button onClick={() => this.setPage(0)} className="page-link">1</button>
@@ -68,14 +68,14 @@ export class Pagination extends Component {
     }
     if (this.state.selectedPage < maxPages) {
       next = (<li className="page-item">
-        <button onClick={() => this.changePage(1)} className="page-link">Naprej</button>
+        <button onClick={() => this.changePage(1)} className="page-link  next-page">Naprej</button>
       </li>);
     }
 
     let options = this.props.pageSizeOptions.map(option => (<option value={option} key={option}>{option}</option>));
 
     return (
-      <div className="row">
+      <div className="row pagination-row">
         <div className="col-9 col-sm-10">
           <nav>
             <ul className="pagination">
