@@ -59,7 +59,7 @@ class TasksTableItem extends Component {
     let taskButton;
     let showContacts;
     if (this.props.showContacts) {
-      showContacts = (<td><Select value={task.contactId} items={this.props.contacts} onChange={(event) => this.props.editTaskDuration(task.id, task.title, task.description, event.target.value)} bindLabel="firstName" bindLabelSecond="lastName" bindValue="id" /></td>);
+      showContacts = (<td><Select value={task.contactId} items={this.props.contacts} onChange={(event) => this.props.editTask(task.id, task.title, task.description, event.target.value)} bindLabel="firstName" bindLabelSecond="lastName" bindValue="id" /></td>);
     }
     if (task.startDate) {
       taskButton = (<button onClick={() => this.stopTimer()} className="btn btn-danger">Stop</button>);
