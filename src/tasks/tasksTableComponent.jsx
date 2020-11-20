@@ -8,7 +8,7 @@ import TasksTableItem from "./tasksTableItemComponent";
 class TasksTable extends Component {
 
   state = {
-    pageSize: 6,
+    pageSize: 10,
     pageIndex: 0
   };
 
@@ -21,6 +21,8 @@ class TasksTable extends Component {
     if (this.props.showContacts) {
       owner = (<th scope="col">Nosilec</th>);
     }
+    const from = (this.state.pageIndex) * this.state.pageSize,
+      to = (this.state.pageIndex + 1) * this.state.pageSize;
     return (
       <div className="container">
         <div className="row">
@@ -42,7 +44,7 @@ class TasksTable extends Component {
           </tr>
           </thead>
           <tbody>
-          {this.props.tasks.map(task => {
+          {this.props.tasks.filter((val, index) => index >= from && index < to).map(task => {
             return (<TasksTableItem task={task} showContacts={this.props.showContacts} key={task.id} contacts={this.props.contacts} />);
           })}
           </tbody>
