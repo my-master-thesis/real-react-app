@@ -1,0 +1,17 @@
+.fade-enter {
+  opacity: 0;
+  height: 0;
+}
+.fade-enter-active {
+  transition-timing-function: ease-out;
+  transition: 1s;
+  height: 600px; opacity: 1
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition-timing-function: ease-out;
+  transition: 1s;
+}

@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.fade-enter-active, .fade-exit-active {
+  transition-timing-function: ease-out;
+  transition: 1s;
+  height: 600px; opacity: 1
+}
+.fade-enter, .fade-exit {
+  height: 0;
+  opacity: 0;
+}

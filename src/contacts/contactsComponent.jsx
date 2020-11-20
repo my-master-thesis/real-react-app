@@ -3,18 +3,28 @@ import {ContactsGrid} from "./contactsGridComponent";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {addContact} from "../actions";
+import { CSSTransition } from 'react-transition-group';
+import './Contacts.css';
+
 
 class Contacts extends Component {
+  state = { firstTime: true };
 
   render() {
+    const firstTime = this.state.firstTime;
+    if (firstTime) {
+      this.setState({firstTime: false});
+    }
     const contacts = this.props.contacts ? this.props.contacts : [];
     const favoritesArr = contacts.filter(contact => contact.isFavorite);
-    let favorites;
+    let favorites = (<div/>);
     if (favoritesArr.length) {
-      favorites = (<div className="container" id="favorite-contacts">
+      favorites = (
+        <div className="container" id="favorite-contacts">
         <h2>Priljubljeni kontakti</h2>
         <ContactsGrid contacts={favoritesArr}></ContactsGrid>
-      </div>);
+      </div>
+      );
     }
     return (
       <div className="container-fluid">
@@ -24,7 +34,13 @@ class Contacts extends Component {
         <p>Stran prikazuje primer resne strani, kjer se prikazujejo kontakti, te pa lahko dodajamo, urejamo, brišemo ter
           dodajamo med priljubljene. Na dnu je tudi paginacija, ki služi nadzoru nad tem koliko podatkov želimo
           prikazovati na enkrat.</p>
+        <CSSTransition
+          in={!!favoritesArr.length && !firstTime}
+          timeout={1000}
+          classNames="fade"
+        >
         {favorites}
+        </CSSTransition>
         <div className="container" id="all-contacts">
           <div className="row">
             <div className="col-10">
