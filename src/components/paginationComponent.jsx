@@ -32,6 +32,7 @@ export class Pagination extends Component {
     let page = this.state.selectedPage;
     const maxPages = Math.floor(this.props.length / size);
     if (page > maxPages) {
+      page = maxPages;
       this.setState({selectedPage: maxPages, pageSize: size});
     } else {
       this.setState({pageSize: size});
@@ -41,7 +42,6 @@ export class Pagination extends Component {
 
   render() {
     const maxPages = Math.floor(this.props.length / this.props.pageSize);
-
     let previous, first, dotsLeft, dotsRight, last, next;
     if (this.state.selectedPage > 0) {
       previous = (<li className="page-item">
