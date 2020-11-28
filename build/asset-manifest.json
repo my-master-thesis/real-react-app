@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e058db38.chunk.css",
+    "main.js": "/static/js/main.2732627f.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.dcc7b5e5.js",
+    "static/css/2.e820a691.chunk.css": "/static/css/2.e820a691.chunk.css",
+    "static/js/2.31f1888a.chunk.js": "/static/js/2.31f1888a.chunk.js",
+    "index.html": "/index.html",
+    "precache-manifest.47c599b410f84db106d1ed6693227932.js": "/precache-manifest.47c599b410f84db106d1ed6693227932.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.31f1888a.chunk.js.LICENSE": "/static/js/2.31f1888a.chunk.js.LICENSE",
+    "static/media/aplikacija_drevesna_struktura.jpg": "/static/media/aplikacija_drevesna_struktura.cb371862.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dcc7b5e5.js",
+    "static/css/2.e820a691.chunk.css",
+    "static/js/2.31f1888a.chunk.js",
+    "static/css/main.e058db38.chunk.css",
+    "static/js/main.2732627f.chunk.js"
+  ]
+}
